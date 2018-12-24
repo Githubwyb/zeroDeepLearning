@@ -1,12 +1,13 @@
 import zipfile
 import os
 
-for dirpath,dirnames,filenames in os.walk('./'):
-    if dirpath == './':
-        for folderName in dirnames:
-            print('Begin zip', folderName)
-            # z = zipfile.ZipFile(folderName + '.zip', 'w', zipfile.ZIP_STORED)
-            for dp, dn, fn in os.walk(folderName):
-                for fileName in fn:
-                    print(folderName + '/' + fileName)
-            # z.close()
+z = zipfile.ZipFile('dirName.zip', 'w', zipfile.ZIP_STORED)
+for dirPath, dirNames, fileNames in os.walk('1.Perceptron'):
+    for fileName in fileNames:
+        z.write(dirPath + '/' + fileName)
+        print(dirPath + '/' + fileName)
+
+    for dirName in dirNames:
+        z.write(dirPath + '/' + dirName)
+        print(dirPath + '/' + dirName + '/')
+z.close()
