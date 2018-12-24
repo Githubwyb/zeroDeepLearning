@@ -54,7 +54,6 @@ class Perceptron(object):
             output = self.predict(input_vec)
             # 更新权重
             self._update_weights(input_vec, output, label, rate)
-            print(input_vec, self)
 
     def _update_weights(self, input_vec, output, label, rate):
         '''
