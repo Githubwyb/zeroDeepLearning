@@ -1,13 +1,12 @@
-import zipfile
-import os
+class test(object):
+    def __init__(self):
+        self.str = '123'
 
-z = zipfile.ZipFile('dirName.zip', 'w', zipfile.ZIP_STORED)
-for dirPath, dirNames, fileNames in os.walk('1.Perceptron'):
-    for fileName in fileNames:
-        z.write(dirPath + '/' + fileName)
-        print(dirPath + '/' + fileName)
+def change(obj):
+    obj.str = '456'
 
-    for dirName in dirNames:
-        z.write(dirPath + '/' + dirName)
-        print(dirPath + '/' + dirName + '/')
-z.close()
+if __name__ == '__main__':
+    a = test()
+    print(a.str)
+    change(a)
+    print(a.str)
